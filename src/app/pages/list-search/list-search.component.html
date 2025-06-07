@@ -1,0 +1,49 @@
+<h2>Product Catalog</h2>
+
+<input
+  [formControl]="searchCtrl"
+  placeholder="Search for a product…"
+  class="search-box"
+/>
+
+<ng-container *ngIf="product$ | async as paged; else loading">
+  <table *ngIf="paged.items.length > 0; else noResults" class="table">
+    <thead>
+      <tr>
+        <th (click)="updateSort('name')">Name</th>
+        <th (click)="updateSort('price')">Price</th>
+        <th (click)="updateSort('inStock')">Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of paged.items">
+        <td>{{ p.name }}</td>
+        <td>{{ p.price | currency }}</td>
+        <td>{{ p.inStock }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button [disabled]="currentPage <= 1" (click)="updatePage(currentPage - 1)">
+      Prev
+    </button>
+
+    <span> Page {{ currentPage }} of {{ paged.total / pageSize | ceil }} </span>
+
+    <button
+      [disabled]="currentPage >= (paged.total / pageSize | ceil)"
+      (click)="updatePage(currentPage + 1)"
+    >
+      Next
+    </button>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <p>Loading…</p>
+</ng-template>
+
+<ng-template #noResults>
+  <p>No products found.</p>
+</ng-template>

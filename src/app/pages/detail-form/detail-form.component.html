@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <input id="name" type="text" formControlName="name" />
+    <span *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+      Name is required
+    </span>
+    <input id="price" type="text" formControlName="price" />
+    <span
+      *ngIf="form.get('price')?.touched && form.get('price')?.hasError('min')"
+    >
+      Price must be 0 or more
+    </span>
+    <span
+      *ngIf="
+        form.get('price')?.touched && form.get('price')?.hasError('required')
+      "
+    >
+      Price is required
+    </span>
+    <input id="inStock" type="text" formControlName="inStock" />
+    <span
+      *ngIf="
+        form.get('inStock')?.touched && form.get('inStock')?.hasError('min')
+      "
+    >
+      Stock must be 0 or more
+    </span>
+    <span
+      *ngIf="
+        form.get('inStock')?.touched &&
+        form.get('inStock')?.hasError('required')
+      "
+    >
+      Stock is required
+    </span>
+  </div>
+  <div>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </div>
+</form>

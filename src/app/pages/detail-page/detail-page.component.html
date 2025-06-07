@@ -1,0 +1,6 @@
+<h2>Product Form</h2>
+<app-detail-form (save)="handleSave($event)"></app-detail-form>
+
+<div *ngIf="savedProductName" class="success-message">
+  ✅ Product "{{ savedProductName }}" saved successfully!
+</div>

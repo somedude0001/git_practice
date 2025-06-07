@@ -1,0 +1,27 @@
+.search-box {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.table th,
+.table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+.table th {
+  cursor: pointer;
+  background: #f9f9f9;
+}
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}

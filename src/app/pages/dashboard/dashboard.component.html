@@ -1,0 +1,19 @@
+<h2>Product Dashboard</h2>
+
+<div class="cards">
+  <div class="card">
+    <h3>Total Products</h3>
+    <p>{{ totalCount$ | async }}</p>
+  </div>
+  <div class="card">
+    <h3>Low Stock (&lt;5)</h3>
+    <p>{{ lowStockCount$ | async }}</p>
+  </div>
+</div>
+
+<h3>Recently Added</h3>
+<ul>
+  <li *ngFor="let p of recent$ | async">
+    {{ p.name }} — Added {{ p.createdAt }}
+  </li>
+</ul>

@@ -1,0 +1,6 @@
+[
+    { "id": 1, "name": "Widget",      "price": 9.99,  "inStock": 42, "createdAt": "2025-04-20" },
+    { "id": 2, "name": "Gadget",      "price": 14.5,  "inStock": 5,  "createdAt": "2025-04-18" },
+    { "id": 3, "name": "Doohickey",   "price": 2.75,  "inStock": 0,  "createdAt": "2025-04-22" },
+    { "id": 4, "name": "Thingamabob", "price": 49.0,  "inStock": 7,  "createdAt": "2025-04-19" }
+  ]

@@ -1,0 +1,28 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ThemeService {
+  private darkMode = false;
+
+  setDarkMode(enabled: boolean): void {
+    this.darkMode = enabled;
+
+    if (enabled) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
+
+  getDarkMode(): boolean {
+    return this.darkMode;
+  }
+}
+
+/** We can write this service with signals (experimental, I don't know if it's correct or not ):
+ * private darkMode = signal(false);
+ * setDarkMode(computed() => signal());
+ * 
+ */
