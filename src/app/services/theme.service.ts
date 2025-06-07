@@ -23,6 +23,12 @@ export class ThemeService {
 
 /** We can write this service with signals (experimental, I don't know if it's correct or not ):
  * private darkMode = signal(false);
- * setDarkMode(computed() => signal());
- * 
+ * setDarkMode(enabled : boolean) : void {
+ * this.darkMode.set(enabled)
+ * document.body.classList.toggle('dark-mode', enabled);
+ * }
+ * getDarkMode(): boolean {
+ * return this.darkMode(); //returns the current value for comps to use, it's not reactive
+ * }
+ *darkMode$ = this.darkMode; //exposing signals for comps to use, it is reactive
  */
